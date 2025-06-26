@@ -1,5 +1,6 @@
 import React from 'react';
 import { Search, User, Instagram, X, Apple, Play } from 'lucide-react'; // Importing icons from lucide-react
+import './Homepage.css';
 
 // Main App Component
 export default function App() {
@@ -55,8 +56,9 @@ const HeroSection = () => {
     <section className="w-full max-w-7xl mx-auto relative px-4 md:px-8 lg:px-12 mt-6">
       {/* Hero Image */}
       <img
+        id='HeroSection'
         className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-[30px] sm:rounded-[50px] lg:rounded-[80px] object-cover"
-        src="/image_f44dd6.jpg" // Using the uploaded image
+        src="/Hero_image.jpg" // Using the uploaded image
         alt="People in a car, enjoying the ride"
         onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/1144x600?text=Hero+Image'; }} // Fallback
       />
