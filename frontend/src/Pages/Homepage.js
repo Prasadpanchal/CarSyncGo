@@ -1,54 +1,32 @@
 import React from 'react';
-import { Search, User, Instagram, X, Apple, Play } from 'lucide-react'; // Importing icons from lucide-react
+import { Search, Instagram, X, Apple, Play } from 'lucide-react'; // 'User' removed
 import './Homepage.css';
+import Navbar from '../component/Navbar'; // Corrected import path for Navbar
 
-// Main App Component
+// Main App Component (This is still the top-level component you export from Homepage.js)
 export default function App() {
   return (
     <div className="min-h-screen bg-white font-['Jura'] flex flex-col items-center overflow-x-hidden">
-      {/* Header Section */}
-      <Header />
+      {/* Your fixed Navbar goes here, above all other content */}
+      <Navbar />
 
-      {/* Hero Section */}
-      <HeroSection />
+      {/* Add padding-top to shift content down, matching the Navbar's height */}
+      <div className="pt-[70px] w-full flex flex-col items-center"> {/* Adjust pt-[value] based on Navbar height */}
+        {/* Hero Section */}
+        <HeroSection />
 
-      {/* Feature Cards Section */}
-      <FeatureCards />
+        {/* Feature Cards Section */}
+        <FeatureCards />
 
-      {/* Scam Prevention Section */}
-      <ScamPrevention />
+        {/* Scam Prevention Section */}
+        <ScamPrevention />
 
-      {/* Footer Section */}
-      <Footer />
+        {/* Footer Section */}
+        <Footer />
+      </div>
     </div>
   );
 }
-
-// Header Component
-const Header = () => {
-  return (
-    <header className="w-full max-w-7xl mx-auto py-4 px-4 md:px-8 lg:px-12 flex justify-center items-center relative z-10">
-      <div className="w-full max-w-4xl h-14 bg-zinc-100 rounded-[20px] flex items-center justify-between px-6">
-        {/* Logo */}
-        <div className="text-neutral-700 text-3xl sm:text-4xl lg:text-5xl font-normal font-['Jomhuria'] flex-shrink-0">
-          CarSyncGo
-        </div>
-
-        {/* Navigation and Action Buttons */}
-        <nav className="flex items-center space-x-4 sm:space-x-8">
-          <div className="hidden sm:block bg-white rounded-2xl px-4 py-2">
-            <span className="text-black text-sm sm:text-base font-bold">Home</span>
-          </div>
-          <button className="hidden sm:block text-black text-sm sm:text-base font-bold px-4 py-2 rounded-2xl">
-            Publish a ride
-          </button>
-          {/* User Icon */}
-          <User className="w-6 h-6 text-black" />
-        </nav>
-      </div>
-    </header>
-  );
-};
 
 // Hero Section Component
 const HeroSection = () => {
@@ -58,7 +36,7 @@ const HeroSection = () => {
       <img
         id='HeroSection'
         className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-[30px] sm:rounded-[50px] lg:rounded-[80px] object-cover"
-        src="/Hero_image.jpg" // Using the uploaded image
+        src="/Hero_image.jpg" // Using the uploaded image (from public folder)
         alt="People in a car, enjoying the ride"
         onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/1144x600?text=Hero+Image'; }} // Fallback
       />
